@@ -1,0 +1,837 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=utf-8>
+		<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+		<title></title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="cache-control" content="no-transform" />
+		<meta http-equiv="cache-control" content="no-siteapp" />
+		<meta name="MobileOptimized" content="width" />
+		<meta name="HandheldFriendly" content="true" />
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="UTF-8">
+		<!-- applicable-device begin -->
+		<meta name="applicable-device" content="pc">
+
+
+		<!-- applicable-device end -->
+		<!--qq config-->
+
+
+		<meta name="fragment" content="!" />
+		<meta name="tyc-wx-type" content="human" />
+		<meta name="tyc-wx-name" content="李彦宏" />
+		<meta name="tyc-device" content="pc" />
+		<!--<script>
+			String.prototype.trim = function() {
+				return this.replace(/(^\s*)|(\s*$)/g, "");
+			};
+			window.serverDomain = 'https://www.tianyancha.com';
+			window.antirobotServer = 'https://antirobot.tianyancha.com';
+			window.serverSuffix = '.tianyancha.com';
+			window.appServerDomain = 'https://app.tianyancha.com';
+			window.cookieServerSuffix = '.tianyancha.com';
+			window.disServerDomain = 'https://dis.tianyancha.com';
+		</script>-->
+		<script src="js/aliyun-oss-sdk-4.4.4.min.js"></script>
+		<script src="js/promise-6.1.0.js"></script>
+		<!--<script src="https://static.tianyancha.com/web-require-js/public/js/promise-6.1.0.js"></script>-->
+		<script type="text/javascript" src="js/require-ca0d57b3a5.config.js"></script>
+		<script data-main="route/human" src="js/require.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<!-- build:css(./) resources/styles/app.css -->
+		<!-- inject:css -->
+		<link rel="stylesheet" href="css/main-5f800e72be.css">
+		<!-- endinject -->
+		<!-- endbuild -->
+		<style type="text/css">
+			[ng\:cloak],
+			[ng-cloak],
+			[data-ng-cloak],
+			[x-ng-cloak],
+			.ng-cloak,
+			.x-ng-cloak,
+			.ng-hide {
+				display: none !important;
+			}
+			
+			ng\:form {
+				display: block;
+			}
+			
+			.ng-animate-start {
+				clip: rect(0, auto, auto, 0);
+				-ms-zoom: 1.0001;
+			}
+			
+			.ng-animate-active {
+				clip: rect(-1px, auto, auto, 0);
+				-ms-zoom: 1;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+
+  <script src="js/respond.js"></script><![endif]-->
+		<script>
+			(function() {
+				var method;
+				var noop = function() {};
+				var methods = [
+					'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+					'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+					'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+					'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+				];
+				var length = methods.length;
+				var console = (window.console = window.console || {});
+
+				while(length--) {
+					method = methods[length];
+
+					// Only stub undefined methods.
+					if(!console[method]) {
+						console[method] = noop;
+					}
+				}
+				CacheStoarge = function CacheStoarge() {
+					var _bb = [];
+					return {
+						_tt: function(bbV, bbE, bbX) {
+							bbX ? _bb.push(bbX) : _bb[bbV].push(bbE);
+						},
+						_ff: function(ii) {
+							//console.log(_bb);
+							return _bb[ii];
+						}
+					};
+				};
+				DOMImplementaiton = CacheStoarge();
+			}());
+		</script>
+	</head>
+
+	<body>
+		<div id="web-header" class="company_input_v2 b-c-white" style="border-bottom: 1px solid #e0e0e0;width: 100%; height: 74px;position: fixed; z-index: 1040;">
+			<div class="container company_container">
+				<div class="row" style="padding-left: 0;padding-right: 0; padding-top:0; padding-bottom: 0;">
+					<div style="padding-left: 0;padding-right: 0;height: 74px; position: relative; " class="head-left">
+
+
+						<div class="head-tab-outer" ng-hide="hideInput">
+							<div class="head-tab-head sec-c3">
+								<div class="in-block head-tab mr2 head-tab-c text-center point " onclick="header.changeSearchTab(event,'company')">
+									<div class="head-tab-top">查公司</div>
+								</div>
+								<div class="in-block head-tab mr2 head-tab-h text-center point active" tyc-event-click tyc-event-ch="DaoHang.HumanSearch.Tab" onclick="header.changeSearchTab(event,'human')">
+									<div class="head-tab-top">查老板</div>
+								</div>
+								<div class="in-block head-tab head-tab-r text-center point relation" tyc-event-click tyc-event-ch="DaoHang.RelationSearch.Tab" onclick="header.jumpToPath(event)">
+									<div class="head-tab-top">查关系</div>
+								</div>
+							</div>
+							<div class="head-tab-body head-tab-human">
+								<div class="input-group search_group head-search-group-company" style="display:none;position:relative;">
+									<form onsubmit="return header.stopSubmit(event,null,'#header-company-search');" autocomplete="off"><input id="header-company-search" type="search" maxlength="50" class="search_input form-control search_form input search-input-v1 f12 js-live-search" placeholder='请输入公司名称、人名、产品名称或其它关键词' value="" style="border:none;" click-selected="header.suggestToCompany" event-trigger="searchSync.eventTrigger"><img alt="" onclick="header.clearKey(event,'#header-company-search');" ng-show="key" src="picture/close.png" class="clearNew" width="20px" /></form>
+									<div class="input-group-addon button-blue-sm pt0 pb0" style="border: none;border-radius: 0;" tyc-event-click tyc-event-ch="DaoHang.CompanySearch.Search" onclick="header.search(event,'#header-company-search')">搜索一下</div>
+								</div>
+								<div class="input-group search_group head-search-group-human" style="display:">
+									<form onsubmit="return header.stopHumanSubmit(event,null,'#header-human-search');" autocomplete="off"><input type="search" class="search_input form-control search_form input search-input-v1 f12  js-live-search" maxlength="50" value="李彦宏" id="header-human-search" suggest="true" livesearch-is-human="true" enter-selected="true" click-selected="header.suggestToHuman" placeholder='请输入人名、人名加地域/公司/产品关键词、用空格隔开' event-trigger="searchSync.eventTrigger"></form><img onclick="header.clearKey(event,'#header-human-search');" src="picture/close.png" class="clearNew" width="20px" alt=" " />
+									<div class="input-group-addon button-blue-sm pt0 pb0" style="border: none;border-radius: 0;" onclick="header.searchHuman(event,null,'#header-human-search')">搜索一下</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div>
+			<div id="web-content">
+				<div>
+					<!-- 搜索框V1结束 -->
+					<div class="b-c-gray">
+						<div class="riskLoading" style="display: none">
+							<div style="width: 100%;
+							    height: 100vh;
+							    background-color: rgba(255,255,255,0.8);
+							    position: fixed;
+							    text-align: center;
+							    padding-top: 150px;
+							    top:0;
+							    z-index: 2000;" class="loaded">
+								<!--<svg class="circleRun" width="300" height="300" viewBox="0 0 300 300">-->
+								<!--<defs>-->
+								<!--<linearGradient id="circleOne" x1="0%" y1="0%" x2="0%" y2="100%">-->
+								<!--<stop offset="0%" style="stop-color:rgba(2,123,189,1);"/>-->
+								<!--<stop offset="100%" style="stop-color:rgba(40,201,206,1);"/>-->
+								<!--</linearGradient>-->
+								<!--<linearGradient id="circleTwo" x1="0%" y1="0%" x2="0%" y2="100%">-->
+								<!--<stop offset="0%" style="stop-color:rgba(2,123,189,0.4);"/>-->
+								<!--<stop offset="100%" style="stop-color:rgba(40,201,206,0.4);"/>-->
+								<!--</linearGradient>-->
+								<!--<linearGradient id="circleThree" x1="0%" y1="0%" x2="0%" y2="100%">-->
+								<!--<stop offset="0%" style="stop-color:rgba(2,123,189,0.1);"/>-->
+								<!--<stop offset="100%" style="stop-color:rgba(40,201,206,0.1);"/>-->
+								<!--</linearGradient>-->
+								<!--</defs>-->
+								<!--<image xlink:href="https://static.tianyancha.com/wap/images/fxcp-app.png" x="65" y="30" width="175" height="242"/>-->
+								<!--<circle id="path1" cx="150" cy="150" r="125"></circle>-->
+								<!--<circle id="path2" cx="150" cy="150" r="125"></circle>-->
+								<!--<circle id="path3" cx="150" cy="150" r="125"></circle>-->
+								<!--</svg>-->
+								<div class="loadingGif"><img style="width: 300px;" src="picture/fxcploading.gif" alt="loading"></div>
+								<div class="c9 f20">风险评测中</div>
+								<div class="loaders mt10">
+									<div class="loader">
+										<div class="loader-inner ball-pulse">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-dialog  modal-successBox2 hide">
+									<div class="modal-content">
+										<div class="checkPopup pt25 pb20" style=""><img src="picture/vip_toast_top.png" class="vip_toast position-abs">
+											<div class="text-center pl20 pr20">
+												<div class="f16 human-alert-em new-c3"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="container company_container human-new424 top_container_new" style="">
+							<div class="row" style="padding:0; ">
+								<div class="col-9 pl0 pr10 pt20" style="padding-bottom: 85px;">
+									<div class="human_box">
+										<div class="pltw pttw new-border b-c-white pb20 position-rel">
+											<div class="human-title-img2 vertical-top "><img alt="李" src="picture/345609db75383b411884a401a6f3665e.png@!watermark01" style="width: 100%" onmouseenter="headShowMainDetail(this)" onmouseleave="headHideMainDetail(this)"></div>
+											<div class="in-block pltw vertival-top" style="width: 85%;">
+												<div><span class="f18 sec-c2 font-bold" id="humanName">李彦宏</span><span class="f12 vipBgColor pl8 pr8 pt4 pb4 c-white point float-right vipcolor_hover" tyc-event-click tyc-event-ch="HumanDetail.Baogaoxiazai" onclick="loginObj.showLoginModal({loginUrl:common.addUserAction('report')})"><i class="tic tic-download mr5"></i>下载报告</span></div>
+												<div class="human-intro pt12 f14 new-c3 "><span class="new-c2">介绍：</span><span class="js-shrink-container"><span class="js-full-container hidden">李彦宏，北京百度网讯科技有限公司董事长兼首席执行官。全国政协委员、全国工商联副主席、北京市科协副主席、武汉大学客座教授、中国科学技术大学客座教授、南开大学兼职教授，李彦宏还是联合国艾滋病规划署全球委员及爱佑华夏慈善基金会理事会理事。
+中文名：李彦宏
+外文名：Robin
+国 籍：中国
+出生地山：山西省阳泉市
+出生日期：1968年11月17日
+职 业：百度公司董事长兼首席执行官
+毕业院校：北京大学，布法罗纽约州立大学
+在搜索引擎发展初期，李彦宏作为全球最早研究者之一，最先创建了ESP技术，并将它成功的应用于INFOSEEK/GO. COM的搜索引擎中。GO. COM的图像搜索引擎是他的另一项极具应用价值的技术创新。
+创立百度之前，李彦宏已经跻身全球最顶尖的搜索引擎工程师行列，其拥有的“超链分析”技术专利，是奠定整个现代搜索引擎发展趋势和方向的基础发明之一。
+百度的成功，也使中国成为美国、俄罗斯、和韩国之外，全球仅有的4个拥有搜索引擎核心技术的国家之一。
+当年李彦宏在美国抛弃唾手可得的博士帽，艰苦创业的时候，美国IT界最火的是电子商务。无数人拼了老命想要挤上这辆被看好的网络列车，甚至不惜抛掉自己熟悉的行业。李彦宏没有跟随大流进入电子商务领域，而是悄悄走到了尚少有人问津的网络搜索领域。因为他看到了搜索对网络世界可能产生的巨大影响。
+当年李彦宏在美国抛弃唾手可得的博士帽，艰苦创业的时候，美国IT界最火的是电子商务。无数人拼了老命想要挤上这辆被看好的网络列车，甚至不惜抛掉自己熟悉的行业。李彦宏没有跟随大流进入电子商务领域，而是悄悄走到了尚少有人问津的网络搜索领域。因为他看到了搜索对网络世界可能产生的巨大影响。
+李彦宏告诫跃跃欲试的年轻人：一定要有向前看两年的眼光。跟风、赶潮流，你吃到的很可能只是残羹冷炙。
+"这个项目多久可以完成？"
+"6个月。"
+"4个月行吗？给你加50%的报酬。"
+"对不起，我做不到。"
+这是在李彦宏创业之初和一个客户的一次对话。后来，这个客户告诉他，对于李彦宏的拒绝，他感到非常满意，因为这反映出李彦宏是一个很真实和稳重的人，这样他的产品在质量上一定会有保证的。
+在创业过程中，"有钱走遍天下，无钱寸步难行"是颠扑不破的真理。在美国硅谷里，每天都有公司因为有了风险投资而开山立派，每天也都有公司因为囊中羞涩而关门大吉。李彦宏认为，一定要在不需要钱的时候去向投资人寻求投资。
+"不要轻易将主动权交给投资人，在创业的过程中没有人会乐善好施。"李彦宏告诫创业的青年人，"一定要在尚不缺钱的时候借到下一步需要的钱。"
+在创业的初期，创业者常常会因为有了一两个固定的大用户而偷笑不止。"或许不久就是想哭都哭不出来啊。"李彦宏这样说。
+他刚回国创业的时候，公司主要是服务于几大门户网站。这几大网站都占据了公司收入的10%以上，任何一个客户的流失，都会对公司的效益造成极大的影响。
+"命运只能掌握在自己手中，绝不能操纵在别人手中。"
+过早地实现赢利就是在大量地缩减对技术的投入。
+李彦宏认为，一个创新的公司，在技术上一定需要大规模的投入。这样才能使自己在技术上一直处于领先甚至于垄断的地位。而这种领先在今后一定会带给企业大的回报。牺牲企业的长远利益宣布赢利，是不理智的行为。
+从1999年公司成立到现在，4年的时间里，互联网世界沧海桑田，"网络游戏""短信平台"纷纷强势登场，不少人捷足先登，赚得盆满钵满；不少人跟风而动，也摔得头破血流。而李彦宏说他只在做一件事：搜索。在他眼里，自己的公司，自己的领域还有很深的潜力可以挖掘，自己目前要做的只是将搜索这一个领域不断翻新。"在今后的若干年，百度也将只在搜索领域发展。"李彦宏如是说。
+从1999年公司成立到现在，4年的时间里，互联网世界沧海桑田，"网络游戏""短信平台"纷纷强势登场，不少人捷足先登，赚得盆满钵满；不少人跟风而动，也摔得头破血流。而李彦宏说他只在做一件事：搜索。在他眼里，自己的公司，自己的领域还有很深的潜力可以挖掘，自己目前要做的只是将搜索这一个领域不断翻新。"在今后的若干年，百度也将只在搜索领域发展。"李彦宏如是说。
+从1999年公司成立到现在，4年的时间里，互联网世界沧海桑田，"网络游戏""短信平台"纷纷强势登场，不少人捷足先登，赚得盆满钵满；不少人跟风而动，也摔得头破血流。而李彦宏说他只在做一件事：搜索。在他眼里，自己的公司，自己的领域还有很深的潜力可以挖掘，自己目前要做的只是将搜索这一个领域不断翻新。"在今后的若干年，百度也将只在搜索领域发展。"李彦宏如是说。
+一个创新的过程，绝对不是一个一帆风顺的过程。如果没有足够的热爱和激情，创业者将是很难坚持下去了。所以，李彦宏对青年创业者们说，先确保你对这个事业的热爱和激情，然后再创业吧。
+李彦宏在公司提出了“五级领导力”管理模式：
+第一级领导力：领导者关注行动，致力于目标任务，发挥个人技能。
+第二级领导力：领导者关注团队业绩，致力于实现团队的目标，配合团队其他成员一起开展工作，性格和善，善解人意，是优秀的团队成员。
+第三级领导力：领导者已经成为完全意义的领导者，有着明确的领导意识，有很强的意志力、控制力，追求高效率，领导其他成员利用各种资源，朝着既定的组织目标前进。
+第四级领导力：领导者创建组织愿景，并为目标赋予意义，把目标变为团结与激励组织的力量。
+第五级领导力：领导者的鲜明特征是，对事专心，对人诚心，既有很强意志力，又明显谦虚、谦恭；既很执着，又很平和，形成貌似矛盾的双重性格。
+
+首先，洞察行业趋势，“要能看到一到两年后的市场变化，并不断问自己同样的问题，一旦答案相同，说明你已经落后了”；
+第二，果断把握市场机会，“一旦得出了推论就要立刻着手解决，而且要比其他所有人都做得好”；
+第三，极强的沟通技巧，“善于影响、发展、推动、改变、激励他人，营造良好的工作氛围”；
+第四，在复杂多变的情况下，通过一系列综合思考的决策技巧，应变式地找出或开发新的解决方案。
+</span><span class="js-split-container ">李彦宏，北京百度网讯科技有限公司董事长兼首席执行官。全国政协委员、全国工商联副主席、北京市科协副主席、武汉大学客座教授、中国科学技术大学客座教授、南开大学兼职教授，李彦宏还是联合国艾滋病规划署全球委员及爱佑华夏慈善基金会理事会理事。
+中文名：李彦宏
+外文名：Robin
+国 籍：中国
+出生地山：山西省...</span>
+													<a style="cursor: pointer;" class="js-shrink-btn  pull-right c9 point hover_underline">详细</a>
+													</span>
+												</div>
+											</div>
+											<div alt="李" class="position-abs human-detail-expand zIn10 b-c-white expand-lg collapse"><img src="picture/345609db75383b411884a401a6f3665e.png@!watermark01" class='img' /></div>
+										</div>
+									</div>
+									<div>
+										<div class="b-c-white mb10 tyfxBox">
+											<div class="tyfxHeader pt10 pb10 pl20 pr20"><span>天眼风险</span><span class="bgLogo"></span></div>
+											<div class="pt30 pb30 pl20 pr20 point position-rel" onclick="humanriskdetect()">
+												<div class="in-block vertical-top mr20" style="width: 145px;border-right: 1px solid #e0e0e0;">周边风险<span class="new-err roundRisk pl5 pr5" style="font-weight: 800">612</span><span class="f14">条</span></div>
+												<div class="in-block vertical-top riskContent2">他 担任高管的<em>*******</em>曾因<em>************</em>而起诉他人或公司<span>(1条)</span><span class="c9 point pl5 hover_underline">详情</span>
+													<div class="pt10">其他(611条)<span class="c9 pl5 hover_underline point">详情</span></div>
+												</div>
+												<div class="button-yel-sm riskBtn" style="line-height:16px" tyc-event-click tyc-event-ch="compangy.detail.fxbd">查看详情</div>
+											</div>
+										</div>
+										<div class="search-multi-filter b-c-white" style="min-height: 400px;">
+											<div class="search-multi-filter-head">
+												<div class="position-abs"><span onclick="changeHumanTab(1);" class='humanTabBtn humanTabBtn1 subTitle active' style="width: 160px;">他的所有商业角色</span><span onclick="changeHumanTab(2);" class="humanTabBtn humanTabBtn2 subTitle">他的所有公司</span><span onclick="changeHumanTab(3);" class="humanTabBtn humanTabBtn3 subTitle">老板关系</span></div>
+											</div>
+											<div class="p20 human-table collapse in humanTab humanTab1">
+												<table class="table companyInfo-table" style="margin-bottom: 0;">
+													<thead>
+														<tr>
+															<th width="7%">角色</th>
+															<th width="27%">公司</th>
+															<th width="10%">省份地区</th>
+															<th width="13%">开业日期</th>
+															<th width="20%">注册资本</th>
+															<th width="23%">经营状态</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!--法人-->
+														<tr style="background-color: #f2fbfc;">
+															<td rowspan="1" style="background-color: #f3fbfc;">
+																<div>法人</div>
+																<div>(1)</div>
+															</td>
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">福建百度博瑞网络科技有限公司</a>
+															</td>
+															<td>福建</td>
+															<td>2011-03-18</td>
+															<td>105000.000000万人民币</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+														</tr>
+														<!--股东-->
+														<tr style="background-color: #ffffff;">
+															<td rowspan="4">
+																<div>股东</div>
+																<div>(4)</div>
+															</td>
+															<td>
+																<a href="#" target="_blank" class="c9 hover_underline point">北京百度网讯科技有限公司</a>
+																<div class="new-err"><span>投资比例：</span><span>99.50%</span></div>
+															</td>
+															<td>北京</td>
+															<td>2001-06-05</td>
+															<td>217128.000000万人民币</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<tr style="background-color: #ffffff;">
+															<td>
+																<a href="#" target="_blank" class="c9 hover_underline point">北京宏景天下投资有限公司</a>
+																<div class="new-err"><span>投资比例：</span><span>100%</span></div>
+															</td>
+															<td>北京</td>
+															<td>2012-04-25</td>
+															<td>1000 万元</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<tr style="background-color: #ffffff;">
+															<td>
+																<a href="#" target="_blank" class="c9 hover_underline point">福建百度博瑞网络科技有限公司</a>
+																<div class="new-err"><span>投资比例：</span><span>51.00%</span></div>
+															</td>
+															<td>福建</td>
+															<td>2011-03-18</td>
+															<td>105000.000000万人民币</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+														</tr>
+														<tr style="background-color: #ffffff;">
+															<td>
+																<a href="#" target="_blank" class="c9 hover_underline point">紫藤苑文化产业投资管理有限公司</a>
+																<div class="new-err"><span>投资比例：</span><span>5.00%</span></div>
+															</td>
+															<td>北京</td>
+															<td>2015-12-08</td>
+															<td>5000.000000万人民币</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<!--高管-->
+														<tr style="background-color: #f9f9f9;">
+															<td rowspan="6">
+																<div>高管</div>
+																<div>(6)</div>
+															</td>
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">北京百度网讯科技有限公司</a>
+																<div class="new-err"><span>职位：</span><span>执行董事</span></div>
+															</td>
+															<td>北京</td>
+															<td>2001-06-05</td>
+															<td>217128.000000万人民币</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<tr style="background-color: #f9f9f9;">
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">北京百付宝科技有限公司</a>
+																<div class="new-err"><span>职位：</span><span>监事</span></div>
+															</td>
+															<td>北京</td>
+															<td>2008-02-27</td>
+															<td>400000.000000万人民币</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<tr style="background-color: #f9f9f9;">
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">百度云计算技术（北京）有限公司</a>
+																<div class="new-err"><span>职位：</span><span>执行董事</span></div>
+															</td>
+															<td>北京</td>
+															<td>2012-01-05</td>
+															<td>10000.000000万美元</td>
+															<td class="statusType1">开业</td>
+														</tr>
+														<tr style="background-color: #f9f9f9;">
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">百度云计算技术（山西）有限公司</a>
+																<div class="new-err"><span>职位：</span><span>执行董事</span></div>
+															</td>
+															<td>山西</td>
+															<td>2012-01-11</td>
+															<td>28600万美元</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+														</tr>
+														<tr style="background-color: #f9f9f9;">
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">福建百度博瑞网络科技有限公司</a>
+																<div class="new-err"><span>职位：</span><span>董事长</span></div>
+															</td>
+															<td>福建</td>
+															<td>2011-03-18</td>
+															<td>105000.000000万人民币</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+														</tr>
+														<tr style="background-color: #f9f9f9;">
+															<td>
+																<a href="#" class="c9 hover_underline point" target="_blank">北京百度投资管理有限公司</a>
+																<div class="new-err"><span>职位：</span><span>董事</span></div>
+															</td>
+															<td>北京</td>
+															<td>2016-03-18</td>
+															<td>500 万元</td>
+															<td class="statusType1">开业</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="p20 human-table collapse humanTab humanTab2" tyc-event-click tyc-event-ch="HumanDetail.Company">
+												<table class="table companyInfo-table mb0">
+													<thead>
+														<tr>
+															<th width="20%">公司</th>
+															<th width="10%">省份地区</th>
+															<th width="13%">开业日期</th>
+															<th width="20%">注册资本</th>
+															<th width="22%">经营状态</th>
+															<th width="15%">角色</th>
+														</tr>
+													</thead>
+													<tbody>
+														<!--| orderBy:"estiblishTime"-->
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">北京百度网讯科技有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2001-06-05</td>
+															<td>217128.000000万人民币</td>
+															<td class="statusType1">开业</td>
+															<td>股东,执行董事</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">北京百付宝科技有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2008-02-27</td>
+															<td>400000.000000万人民币</td>
+															<td class="statusType1">开业</td>
+															<td>监事</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">百度云计算技术（北京）有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2012-01-05</td>
+															<td>10000.000000万美元</td>
+															<td class="statusType1">开业</td>
+															<td>执行董事</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">北京宏景天下投资有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2012-04-25</td>
+															<td>1000 万元</td>
+															<td class="statusType1">开业</td>
+															<td>股东</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">百度云计算技术（山西）有限公司</a>
+															</td>
+															<td>山西</td>
+															<td>2012-01-11</td>
+															<td>28600万美元</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+															<td>执行董事</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">福建百度博瑞网络科技有限公司</a>
+															</td>
+															<td>福建</td>
+															<td>2011-03-18</td>
+															<td>105000.000000万人民币</td>
+															<td class="statusType1">存续（在营、开业、在册）</td>
+															<td>法人,股东,董事长</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">紫藤苑文化产业投资管理有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2015-12-08</td>
+															<td>5000.000000万人民币</td>
+															<td class="statusType1">开业</td>
+															<td>股东</td>
+														</tr>
+														<tr>
+															<td>
+																<a class="c9 hover_underline point" href='#' target="_blank">北京百度投资管理有限公司</a>
+															</td>
+															<td>北京</td>
+															<td>2016-03-18</td>
+															<td>500 万元</td>
+															<td class="statusType1">开业</td>
+															<td>董事</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!-- graph -->
+										<div class="b-c-white pt5 mt10">
+											<div id="nav-main-graphInfo" class="hidden" style="position:relative;">
+												<div class=" intro-head-b1 f18" style="margin: 10px">老板关系<img alt="老板关系" class="three-ponit" src="picture/three-point.png"></div>
+												<div class="showAllGraph" tyc-event-click tyc-event-ch="CompangyDetail.qiyeguanxi" onclick="showAllHumanGraph(true);">
+													<!--<i class="tic tic-expand f14 in-block vertical-top" ></i>-->全屏查看</div>
+												<div class="showAllGraph human-logo" id="showGraphLogo" tyc-event-click tyc-event-ch="CompangyDetail.qiyeguanxi" onclick="showHumanLogo();">
+													<!--<i class="tic tic-expand f14 in-block vertical-top" ></i>-->显示名称</div>
+												<div class="showAllGraph human-download" id="downloadGraphLogo" tyc-event-click tyc-event-ch="CompangyDetail.qiyeguanxi" onclick="downloadHumanPng();">
+													<!--<i class="tic tic-expand f14 in-block vertical-top" ></i>-->下载图片</div><iframe data-company-id="22822" data-human-id="1984012283" data-mobile="" data-key="b8d3" data-time=1520559388772307c style="width:100%;height:500px;border:none;" src="about:blank"></iframe></div>
+										</div>
+										<div class="b-c-white new-border mt10 pl20 pr20 pt10 pb20">
+											<div class="f18 sec-c1 new-border-bottom">
+												<div class="in-block pb5 border-blue-bottom"><span>他的合作伙伴（</span><span class="new-err">5</span><span>）</span></div>
+											</div>
+											<div class="position-rel pl10 pr23">
+												<!--左侧箭头-->
+												<div class="position-abs point arrow-left disabled" style="top:84px;bottom: 0;left: 0;" onclick="patentScroll(this,1,5)"></div>
+												<div style="white-space: nowrap;overflow-x: hidden" class="p15">
+													<div class="position-rel">
+														<div class="sub-patent vertical-top" tyc-event-click tyc-event-ch="HumanDetail.Friend" onclick="toPartnerDetail(event,2020172991,370127401,'human')">
+															<div class="human-box human-box-sm p15 position-rel mr15 in-block vertical-top text-left">
+																<div class="human-number human-number-md"><img src=" " alt="人员详情"></div>
+																<div class="human-top">
+																	<div class="human-image in-block vertical-top position-rel" onmouseenter="headShowDetail(this)" onmouseleave="headHideDetail(this)">
+																		<div class="imageouter"><img src="picture/bdb7e91f798d66661ade0c4bbb3d54bf.png@!watermark01" alt="梁"></div>
+																		<div class="position-abs imgexpand1 zIn10 b-c-white expand-lg collapse"><img src="picture/bdb7e91f798d66661ade0c4bbb3d54bf.png@!watermark01" alt="梁" class='img' /></div>
+																	</div>
+																	<div class="in-block vertical-top pl15">
+																		<a class="new-c3 f18 pt10" href="#" target="_blank" onclick="common.stopPropagation(event)">梁志祥</a>
+																		<p class="new-c2 f12">全国有<span class="new-err">12</span>家公司，分布如下</p>
+																	</div>
+																</div>
+																<div class="human-bottom new-c2 pt10">
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">北京(共<span class="new-err">6</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">北京百度网讯科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">福建(共<span class="new-err">4</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">福州博远无线网络科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">其他(共<span class="new-err">2</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">天津银行股份有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="sub-patent vertical-top" tyc-event-click tyc-event-ch="HumanDetail.Friend" onclick="toPartnerDetail(event,2321535682,11364756,'human')">
+															<div class="human-box human-box-sm p15 position-rel mr15 in-block vertical-top text-left">
+																<div class="human-number human-number-md"><img src=" " alt="人员详情"></div>
+																<div class="human-top">
+																	<div class="human-image in-block vertical-top">
+																		<div class="letter">百</div>
+																	</div>
+																	<div class="in-block vertical-top pl15">
+																		<a class="new-c3 f18 pt10" href="#" target="_blank" onclick="common.stopPropagation(event)">百度（香港）有限公司</a>
+																		<p class="new-c2 f12">全国有<span class="new-err">6</span>家公司，分布如下</p>
+																	</div>
+																</div>
+																<div class="human-bottom new-c2 pt10">
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">北京(共<span class="new-err">2</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">百度时代网络技术（北京）有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">重庆(共<span class="new-err">1</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">重庆百度小额贷款有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">其他(共<span class="new-err">3</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">百度互联（深圳）网络科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="sub-patent vertical-top" tyc-event-click tyc-event-ch="HumanDetail.Friend" onclick="toPartnerDetail(event,2191149373,29247561,'human')">
+															<div class="human-box human-box-sm p15 position-rel mr15 in-block vertical-top text-left">
+																<div class="human-number human-number-md"><img src=" " alt="人员详情"></div>
+																<div class="human-top">
+																	<div class="human-image in-block vertical-top position-rel" onmouseenter="headShowDetail(this)" onmouseleave="headHideDetail(this)">
+																		<div class="imageouter"><img src="picture/a6177b206f9cc9d04831c7c604116b07.png@!watermark01" alt="赵"></div>
+																		<div class="position-abs imgexpand1 zIn10 b-c-white expand-lg collapse"><img src="picture/a6177b206f9cc9d04831c7c604116b07.png@!watermark01" alt="赵" class='img' /></div>
+																	</div>
+																	<div class="in-block vertical-top pl15">
+																		<a class="new-c3 f18 pt10" href="#" target="_blank" onclick="common.stopPropagation(event)">赵坤</a>
+																		<p class="new-c2 f12">全国有<span class="new-err">10</span>家公司，分布如下</p>
+																	</div>
+																</div>
+																<div class="human-bottom new-c2 pt10">
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">北京(共<span class="new-err">5</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">北京百度多酷科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">福建(共<span class="new-err">3</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">福建百度博瑞网络科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">其他(共<span class="new-err">2</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">天津百度紫桐科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="sub-patent vertical-top" tyc-event-click tyc-event-ch="HumanDetail.Friend" onclick="toPartnerDetail(event,2234922480,1090782795,'human')">
+															<div class="human-box human-box-sm p15 position-rel mr15 in-block vertical-top text-left">
+																<div class="human-number human-number-md"><img src=" " alt="人员详情"></div>
+																<div class="human-top">
+																	<div class="human-image in-block vertical-top">
+																		<div class="letter">钟</div>
+																	</div>
+																	<div class="in-block vertical-top pl15">
+																		<a class="new-c3 f18 pt10" href="#" target="_blank" onclick="common.stopPropagation(event)">钟雯婷</a>
+																		<p class="new-c2 f12">全国有<span class="new-err">7</span>家公司，分布如下</p>
+																	</div>
+																</div>
+																<div class="human-bottom new-c2 pt10">
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">四川(共<span class="new-err">5</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">成都三五里置业有限责任公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">湖南(共<span class="new-err">1</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">长沙全界网络科技有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">其他(共<span class="new-err">1</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">紫藤苑文化产业投资管理有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="sub-patent vertical-top" tyc-event-click tyc-event-ch="HumanDetail.Friend" onclick="toPartnerDetail(event,1835950430,14932514,'human')">
+															<div class="human-box human-box-sm p15 position-rel mr15 in-block vertical-top text-left">
+																<div class="human-number human-number-md"><img src=" " alt="人员详情"></div>
+																<div class="human-top">
+																	<div class="human-image in-block vertical-top position-rel" onmouseenter="headShowDetail(this)" onmouseleave="headHideDetail(this)">
+																		<div class="imageouter"><img src="picture/b49432965f55165c8c68588004bd9ebb.png@!watermark01" alt="叶"></div>
+																		<div class="position-abs imgexpand1 zIn10 b-c-white expand-lg collapse"><img src="picture/b49432965f55165c8c68588004bd9ebb.png@!watermark01" alt="叶" class='img' /></div>
+																	</div>
+																	<div class="in-block vertical-top pl15">
+																		<a class="new-c3 f18 pt10" href="#" target="_blank" onclick="common.stopPropagation(event)">叶茂西</a>
+																		<p class="new-c2 f12">全国有<span class="new-err">18</span>家公司，分布如下</p>
+																	</div>
+																</div>
+																<div class="human-bottom new-c2 pt10">
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">浙江(共<span class="new-err">7</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">平阳县金桥典当有限责任公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">北京(共<span class="new-err">5</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">北京西京广告有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																	<div class="pb5 f12 lh over-hide" style="line-height: 25px"><span class="pull-left">其他(共<span class="new-err">6</span>家)</span>
+																		<div class="pull-right new-c3 f14"><span class="human-prov-company in-block overflow-width vertical-top">新疆德邦能源有限公司</span><span class="in-block  vertical-top">&nbsp;等</span></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--右侧箭头-->
+												<div class="position-abs point arrow-right " style="top:84px;bottom: 0;right: 0;" onclick="patentScroll(this,2,5)"></div>
+												<div class="right-opacity position-abs" style="top: 0;right: 20px;"></div><input type="hidden" value="0" class="itemIndex collapse"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-3 text-center" style="padding-top:20px; padding-left: 0;padding-right: 0;">
+									<div class="banner position-rel">
+										<!---->
+										<!--<div class=" invite-style text-center pl10 pr10 banner-invite-bg"-->
+										<!--tyc-event-click tyc-event-ch="CompanySearch.Right.Share"-->
+										<!--&gt;-->
+										<!--<div class=" pb10 opacity-banner-bottom pt10">-->
+										<!--<span class="in-block vertival-middle inviter-banner-title">邀请赢奖 收益排行榜</span>-->
+										<!--</div>-->
+										<!--<div class="pb10">-->
+										<!--<table class="invite-top-table">-->
+										<!--<thead>-->
+										<!--<tr>-->
+										<!--<td width="15%" class=" pb12">排名</td>-->
+										<!--<td width="60%" class=" pb12">用户名</td>-->
+										<!--<td width="25%" class=" pb12">收益(元)</td>-->
+										<!--</tr>-->
+										<!--</thead>-->
+										<!--<tbody>-->
+										<!---->
+										<!--<tr class="invite-top-tr invite-top-bg">-->
+										<!--<td class="top-rank pr2 pb6">-->
+										<!--<div></div>-->
+										<!--</td>-->
+										<!--<td class="top-phone pl2 pr2 pb6">-->
+										<!--<div>-->
+										<!---->
+										<!--<span class="in-block vertival-middle userpic-box">-->
+										<!--<img src="" style="width: 14px" class="vertical-top">-->
+										<!--</span>-->
+										<!---->
+										<!--<i class=" in-block vertival-middle"></i>-->
+										<!---->
+										<!--<span class="pl5 in-block vertival-middle"></span>-->
+										<!--</div>-->
+										<!--</td>-->
+										<!--<td class="top-money pl2 pb6">-->
+										<!--<div><span>¥</span></div>-->
+										<!--</td>-->
+										<!--</tr>-->
+										<!---->
+										<!--</tbody>-->
+										<!--</table>-->
+										<!--</div>-->
+										<!--<div>-->
+										<!--<a class="b-c-white pl40 pr40 pt5 pb5 in-block mb15 point vipBgColor f16 banner-jump-btn vipcolor_hover c-white a-hover-white"-->
+										<!--href="https://www.tianyancha.com/invite" tyc-event-click tyc-event-ch="CompangyDetail.Right.XDL"-->
+										<!--target="_blank">开始赚钱-->
+										<!--</a>-->
+										<!--</div>-->
+										<!--</div>-->
+										<!--<a class="position-rel block" href="/lawyer" target="_blank">-->
+										<!--<img style="width: 100%;" src="picture/right_lawyer.jpg" alt="">-->
+										<!--</a>-->
+										
+									</div>
+									
+								</div>
+							</div>
+						</div><input type="hidden" id="_hid" value="1984012283" /><input type="hidden" id="_cid" value="22822" /><input type="hidden" class="_vipMessage" value="" /></div>
+				</div>
+			</div>
+			
+			
+		</div><input type="hidden" class="_banner_jump_url" value="#" />
+
+		<script>
+			var gdt_tracker = gdt_tracker || [];
+			gdt_tracker.push(["set_source_id", "33937"]);
+			(function() {
+				var userAgent = navigator.userAgent;
+				if(userAgent.indexOf('ignore') < 0) {
+					var doc = document,
+						h = doc.getElementsByTagName("head")[0],
+						s = doc.createElement("script");
+					s.async = true;
+//					s.src = "https://qzs.qq.com/qzone/biz/res/gt.js";
+					h && h.insertBefore(s, h.firstChild)
+				}
+			})();
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var userAgent = navigator.userAgent;
+				if(userAgent.indexOf('ignore') < 0) {
+					var hm = document.createElement("script");
+					hm.src = "";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				}
+			})();
+		</script>
+		<script>
+			(function() {
+				var bp = document.createElement('script');
+				var curProtocol = window.location.protocol.split(':')[0];
+				if(curProtocol === 'https') {
+//					bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+				} else {
+//					bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+				}
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(bp, s);
+			})();
+		</script>
+		<script>
+			"use strict";
+			! function(e) {
+				var n = function() {
+					var n = e.$,
+						t = {};
+					t.$ = n ? n.fn.jquery : "", n && (t.width = n(e).width(), t.height = n(e).height());
+					var o = e.location,
+						a = e.document,
+						r = e.navigator;
+					t.href = o.href, t.referrer = a.referrer, t.appCodeName = r.appCodeName, t.userAgent = r.userAgent, t.platform = r.platform, t.language = r.language, r.language && r.language.join && (t.languages = r.languages.join(","));
+					var i = a.getElementsByClassName("head-logo");
+					if(i.length) {
+						for(var u = i[i.length - 1].getBoundingClientRect(), s = [], c = ["x", "y", "left", "top", "right", "bottom", "height", "width"], g = c.length; g--;) {
+							d = c[g];
+							s.push(d.substring(0, 1)), s.push(u[d])
+						}
+						t.pic = s.join("|")
+					}
+					var l = e.serverDomain + "/doctor.json";
+					if(l += "?_t=" + (new Date).getTime(), t.xyz = function(e) {
+							var n, t = new RegExp("(^| )" + e + "=([^;]*)(;|$)");
+							return(n = a.cookie.match(t)) ? unescape(n[2]) : null
+						}("csrfToken"), n && n.ajax) n.ajax({
+						url: l,
+						method: "post",
+						data: t
+					}).done(function() {
+						console && console.log("doctor done: check css success")
+					});
+					else {
+						var h = null;
+						if(e.XMLHttpRequest ? h = new XMLHttpRequest : e.ActiveXObject && (h = new ActiveXObject("Microsoft.XMLHTTP")), null !== h) {
+							h.onreadystatechange = function() {}, h.open("POST", l, !0), h.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+							var f = [];
+							for(var d in t) t.hasOwnProperty(d) && f.push(d + "=" + t[d]);
+							h.send(f.join("&"))
+						}
+					}
+				};
+				e.require ? e.require(["lib/domReady"], function(e) {
+					e(function() {
+						n()
+					})
+				}) : n()
+			}(window);
+		</script>
+	</body>
+
+</html>

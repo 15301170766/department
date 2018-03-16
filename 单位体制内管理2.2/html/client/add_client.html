@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>单位体制内管理系统</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <style type="text/css">
+    	.form-group{
+    		width: 40%;
+    		display: inline-block;
+    	}
+    	@media screen and (max-width: 1000px) {
+			.form-group{
+	    		width: 100%;
+	    		display: inline-block;
+	    	}
+		}
+		#addHobbies_client .form-group,#addRelation_client .form-group{
+	    		width: 100%;
+			
+		}
+    </style>
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            
+           
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body">
+                    
+                    <div class="row">
+                        <div class="col-xs-12 bs-example-modal">
+                            <div class="card">
+                                <div class="card-body no-padding">
+                                    <div role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs tab_control " role="tablist">
+                                            <li role="presentation" class="active "><a href="#home" class="btn btn-info" aria-controls="home" role="tab" data-toggle="tab">客户信息新增</a></li>
+                                            <li role="presentation" ><a href="#profile" class="btn btn-info"  aria-controls="profile" role="tab" data-toggle="tab">工作经历新增</a></li>
+                                            <li role="presentation"><a href="#messages" class="btn btn-info"  aria-controls=" " role="tab" data-toggle="tab">学习经历新增</a></li>
+                                            <li role="presentation"><a href="#settings" class="btn btn-info"  id="kehu_aihao_xinxi"  aria-controls="settings" role="tab" data-toggle="tab">兴趣爱好新增</a></li>
+                                            <li role="presentation"><a href="#friends" class="btn btn-info"  aria-controls="friends" role="tab" data-toggle="tab">亲朋好友新增</a></li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="home">
+												 <div class="modal active">
+			                                        <form id="addInfo_client">
+			                                        	
+													    <div class="form-group">
+													      <label for="company_name">姓名</label>
+													      <input type="text" class="form-control name needs"  placeholder="输入相关客户姓名">
+													    </div>
+													     <div class="form-group">
+													      <label for="company_name">年龄</label>
+													      <input type="text" class="form-control age"   placeholder="输入相关年龄">
+													    </div>
+													    <div class="form-group">
+													      <label  >民族</label>
+													      <input type="text" class="form-control nation" placeholder=" 输入相关民族">
+													    </div><div class="form-group">
+													      <label  >出生地</label>
+													      <input type="text" class="form-control birthPlace"  placeholder=" 输入相关出生地">
+													    </div>
+													    <div class="form-group">
+													      <label  >籍贯</label>
+													      <input type="text" class="form-control nativePlace"  placeholder=" 输入相关籍贯">
+													    </div>
+													    <div class="form-group">
+													      <label  >手机号码</label>
+													      <input type="text" class="form-control telphone" placeholder=" 输入相关手机号码">
+													    </div>
+													    <div class="form-group">
+													      <label  >个人邮箱</label>
+													      <input type="text" class="form-control email"  placeholder=" 输入相关个人邮箱">
+													    </div>
+													    <div class="form-group">
+													      <label  >微信</label>
+													      <input type="text" class="form-control wechat"  placeholder=" 输入相关微信">
+													    </div>
+													    <div class="form-group">
+													      <label >qq</label>
+													      <input type="text" class="form-control qq"  placeholder=" 输入相关qq">
+													    </div>
+													    <div class="form-group">
+													      <label >身份证号</label>
+													      <input type="text" class="form-control IDcard"  placeholder=" 输入相关身份证号">
+													    </div>
+													    <div class="form-group">
+													      <label >健康状况</label>
+													      <input type="text" class="form-control health"  placeholder=" 输入相关健康状况">
+													    </div>
+													    <div class="form-group">
+													      <label >个人习惯</label>
+													      <input type="text" class="form-control personHobit"  placeholder=" 输入相关个人习惯">
+													    </div>
+													    <div class="form-group">
+													      <label >现任公司</label>
+													      <input type="text" class="form-control companyName"  placeholder=" 输入相关现任公司">
+													    </div>
+													    <div class="form-group">
+													      <label >担任职务</label>
+													      <input type="text" class="form-control duty"  placeholder=" 输入相关担任职务">
+													    </div>
+													    <div class="form-group">
+													      <label >办公电话</label>
+													      <input type="text" class="form-control officeTEL"  placeholder=" 输入办公电话">
+													    </div>
+													    <div class="form-group">
+													      <label >客户评价</label>
+													      <input type="text" class="form-control clientEvaluation"  placeholder=" 输入相关客户评价">
+													    </div>
+													    <br />
+													    	<button type="button" class="btn btn-primary btn_save">保存</button>
+													    
+												  	</form>
+                                    			</div>
+                                            </div>
+                                            <div class="tab-pane" id="profile">
+												<div class="modal active">
+			                                        <form id="addWorkExperience_client">
+			                                        	<div class="form-group">
+													      <label  >客户名称</label>
+													      <input  type="text" class="form-control name needs" placeholder=" 输入相关客户名称">
+													      <button type="button" class="btn btn-info btn_replace">复制</button>
+													    </div>
+													    <button type="button" class="btn btn-primary btn_AddWorkExperience">新增工作经历</button>
+													    <button type="button" class="btn btn-primary btn_clear" >清空</button>
+													    <button type="button" class="btn btn-primary btn_save" >保存</button>
+												  	</form>
+                                    			</div>
+                                           </div>
+                                            <div class="tab-pane" id="messages">
+												<div class="modal active">
+			                                        <form id="addStudyExperience_client">
+			                                        	<div class="form-group">
+													      <label  >客户名称</label>
+													      <input  type="text" class="form-control name needs" placeholder=" 输入相关客户名称">
+													    	<button type="button" class="btn btn-info btn_replace">复制</button>
+													      
+													    </div>
+													    <button type="button" class="btn btn-primary btn_AddStudyExperience" >新增学习经历</button>
+													    <button type="button" class="btn btn-primary btn_save" >保存</button>
+												  </form>
+                                    			</div>
+                                            </div>
+                                            <div class="tab-pane" id="settings">
+												<div class="modal active">
+			                                        <form  id="addHobbies_client" >
+													    <div class="form-group"  style="width: 40%;">
+													      <label  >客户名称</label>
+													      <input  type="text" class="form-control name needs" placeholder=" 输入客户名称">
+													    	<button type="button" class="btn btn-info btn_replace">复制</button>
+													    </div>
+													    	<br />
+													    <button type="button" class="btn btn-primary btn_save">保存</button>
+													    <button type="button" class="btn btn-primary btn_add">新增</button>	   
+												  </form>
+                                   				</div>
+                                            </div>
+                                            <div class="tab-pane" id="friends">                                           
+												<div class="modal active">
+			                                        <form id="addRelation_client">
+			                                        	<div class="form-group"  style="width: 40%;">
+													      <label  >客户名称</label>
+													      <input  type="text" class="form-control name needs" placeholder=" 输入客户名称">
+													    	<button type="button" class="btn btn-info btn_replace">复制</button>
+													      
+													    </div>
+													    <br class="add_relations" />
+													   <br />
+													   <button type="button" class="btn btn-primary btn_save" >保存</button>
+													    <button type="button" class="btn btn-primary btn_AddRelation" >新增关系</button> 
+												  	</form>
+                                    			</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </div>                                
+                           </div>                      
+                        </div>
+                   </div>         
+                </div>
+            </div>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper">
+                <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 
+            </div>
+        </footer>
+    <div>
+
+      <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/js/bootstrap.min.js"></script>
+      <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../../js_liu/data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/index.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+	
+	// 点击复制按钮时，对左侧单位信息进行判断，
+$(".btn_replace").on("click",function(){
+		let Name=$("#addInfo_client .name").val();
+		$("#addWorkExperience_client .name").val(Name);
+		$("#addStudyExperience_client .name").val(Name);
+		$("#addHobbies_client .name").val(Name);
+		$("#addRelation_client .name").val(Name);
+		if(Name==""){
+			//alert("复制失败，请手动添加");
+		layer.msg('复制失败，请手动添加');
+			
+		}else{
+			
+		layer.msg('复制成功');
+		}
+	
+});
+	// 表单信息提交--详情页
+$("#addInfo_client .btn_save").on("click",function(){
+	let name = $("#addInfo_client .name").val();
+	let age = $("#addInfo_client .age").val();
+	let nation = $("#addInfo_client .nation").val();
+	let birthPlace = $("#addInfo_client .birthPlace").val();
+	let nativePlace = $("#addInfo_client .nativePlace").val();
+	let telphone = $("#addInfo_client .telphone").val();
+	let email = $("#addInfo_client .email").val();
+	let wechat = $("#addInfo_client .wechat").val();
+	let qq = $("#addInfo_client .qq").val();
+	let IDcard = $("#addInfo_client .IDcard").val();
+	let health = $("#addInfo_client .health").val();
+	let personHobit = $("#addInfo_client .personHobit").val();
+	let companyName = $("#addInfo_client .companyName").val();
+	let duty = $("#addInfo_client .duty").val();
+	let officeTEL = $("#addInfo_client .officeTEL").val();
+	let clientEvaluation = $("#addInfo_client .clientEvaluation").val();
+	
+	
+	
+	
+	
+	
+	let data={
+		name:$("#addInfo_client .name").val(),
+		age:$("#addInfo_client .age").val(),
+		nation:$("#addInfo_client .nation").val(),
+		birthPlace:$("#addInfo_client .birthPlace").val(),
+		nativePlace:$("#addInfo_client .nativePlace").val(),
+		telphone:$("#addInfo_client .telphone").val(),
+		email:$("#addInfo_client .email").val(),
+		wechat:$("#addInfo_client .wechat").val(),
+		qq:$("#addInfo_client .qq").val(),
+		IDcard:$("#addInfo_client .IDcard").val(),
+		personHobit:$("#addInfo_client .personHobit").val(),
+		companyName:$("#addInfo_client .companyName").val(),
+		duty:$("#addInfo_client .duty").val(),
+		officeTEL:$("#addInfo_client .officeTEL").val(),
+		clientEvaluation:$("#addInfo_client .clientEvaluation").val()
+	};
+	if(name!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+// 添加工作经历
+$("#addWorkExperience_client .btn_save").on("click",function(){
+	let name = $("#addWorkExperience_client .name").val();
+	let companyAddress = $("#addWorkExperience_client .companyAddress").val();
+	let workTime = $("#addWorkExperience_client .workTime").val();
+	let companyName = $("#addWorkExperience_client .companyName").val();
+	let duty = $("#addWorkExperience_client .duty").val();
+	let expressAbout = $("#addWorkExperience_client .expressAbout").val();
+	let workremark = $("#addWorkExperience_client .workremark").val();
+	
+	let data={
+		name:$("#addWorkExperience_client .name").val(),
+		companyAddress:$("#addWorkExperience_client .companyAddress").val(),
+		workTime:$("#addWorkExperience_client .workTime").val(),
+		companyName:$("#addWorkExperience_client .companyName").val(),
+		duty:$("#addWorkExperience_client .duty").val(),
+		expressAbout:$("#addWorkExperience_client .expressAbout").val(),
+		workremark:$("#addWorkExperience_client .workremark").val()
+	};
+	if(name!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+// 添加学习经历
+$("#addStudyExperience_client .btn_save").on("click",function(){
+	let name = $("#addStudyExperience_client .name").val();
+	let studyTime = $("#addStudyExperience_client .studyTime").val();
+	let schoolName = $("#addStudyExperience_client .schoolName").val();
+	let major = $("#addStudyExperience_client .major").val();
+	let teacher = $("#addStudyExperience_client .teacher").val();
+	let studyremark = $("#addStudyExperience_client .studyremark").val();
+	let studyAddress = $("#addStudyExperience_client .studyAddress").val();
+	
+	let data={
+		name:$("#addStudyExperience_client .name").val(),
+		studyTime:$("#addStudyExperience_client .studyTime").val(),
+		schoolName:$("#addStudyExperience_client .schoolName").val(),
+		major:$("#addStudyExperience_client .major").val(),
+		teacher:$("#addStudyExperience_client .teacher").val(),
+		studyremark:$("#addStudyExperience_client .studyremark").val(),
+		studyAddress:$("#addStudyExperience_client .studyAddress").val()
+	};
+	if(name!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+// 添加兴趣爱好
+$(document).on("click","#addHobbies_client .btn_save",function(){
+	
+	let arr=[];
+	let name = $("#addHobbies_client .name").val();
+	let XQAH=$("#addHobbies_client .addXQAH");
+	for(let i=0;i<XQAH.length;i++){
+			let relationreType = XQAH.eq(i).find('.relationreType').find("option:selected").text();
+			let secondRelation = XQAH.eq(i).find('.secondRelation').find("option:selected").text();
+			let hobbiesOthers = XQAH.eq(i).find('.hobbiesOthers').val();
+			let second=XQAH.eq(i).find('.aihao:checked').val();
+			if(second==123){
+				arr[i]={"relationreType":relationreType,"secondRelation":secondRelation}				
+			}else{
+				arr[i]={"relationreType":relationreType,"hobbiesOthers":hobbiesOthers}				
+			}
+
+	}
+	
+	
+	
+	
+	let data={
+		name:$("#addHobbies_client .name").val(),
+		data:arr
+	};
+	if(name!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+$(document).on("click","#addHobbies_client .btn_add",function(){
+	//alert(123)
+	let XQAH=$("#addHobbies_client .addXQAH");
+	for(let i=0;i<XQAH.length;i++){
+		let aihaoPX="aihaoPX"+i;
+		 XQAH.eq(i).find('.aihao').attr('name',aihaoPX);
+	}
+})
+//爱好二级选项
+/* 
+ * 如果点击checked就禁止选择第二个选项
+ * */
+$(document).on("click","#addHobbies_client .addXQAH input[type=radio]",function(){
+　　let value=$(this).val();
+	if(value==123){
+		$(this).parent().siblings(".secondRelation").attr("disabled",false);
+		$(this).parent().siblings().children(".hobbiesOthers").attr("disabled",true);
+		
+	}else if(value==456){
+		$(this).parent().siblings(".secondRelation").attr("disabled",true);
+		$(this).parent().siblings().children(".hobbiesOthers").attr("disabled",false);
+		
+	}else{
+		$(this).parent().siblings(".secondRelation").attr("disabled",false);
+		$(this).parent().siblings().children(".hobbiesOthers").attr("disabled",false);
+	}
+})
+
+// 添加个人关系信息
+$(document).on("click","#addRelation_client .btn_save",function(){
+	
+	let arr=[];
+	let name = $("#addRelation_client .name").val();
+	let KHGX=$("#addRelation_client .addKHGX");
+	for(let i=0;i<KHGX.length;i++){
+			let relationreType = KHGX.eq(i).find('.relationreType').find("option:selected").text();
+			let secondRelation = KHGX.eq(i).find('.secondRelation').find("option:selected").text();
+			let relationsOther = KHGX.eq(i).find('.relationsOther').val();
+			let second=KHGX.eq(i).find('.guanxi:checked').val();
+			if(second==123){
+				arr[i]={"relationreType":relationreType,"secondRelation":secondRelation}				
+			}else{
+				arr[i]={"relationreType":relationreType,"relationsOther":relationsOther}				
+			}
+
+	}
+	
+	
+	
+	
+	let data={
+		name:$("#addRelation_client .name").val(),
+		data:arr
+	};
+	if(name!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+$(document).on("click","#addRelation_client .btn_AddRelation",function(){
+	//alert(123)
+	let KHGX=$("#addRelation_client .addKHGX");
+	for(let i=0;i<KHGX.length;i++){
+		let guanxiPX="guanxiPX"+i;
+		 KHGX.eq(i).find('.guanxi').attr('name',guanxiPX);
+	}
+})
+//关系二级选项
+/* 
+ * 如果点击checked就禁止选择第二个选项
+ * */
+$(document).on("click","#addRelation_client .addKHGX input[type=radio]",function(){
+　　let value=$(this).val();
+	if(value==123){
+		$(this).parent().siblings(".secondRelation").attr("disabled",false);
+		$(this).parent().siblings().children(".relationsOther").attr("disabled",true);
+		
+	}else if(value==456){
+		$(this).parent().siblings(".secondRelation").attr("disabled",true);
+		$(this).parent().siblings().children(".relationsOther").attr("disabled",false);
+		
+	}else{
+		$(this).parent().siblings(".secondRelation").attr("disabled",false);
+		$(this).parent().siblings().children(".relationsOther").attr("disabled",false);
+	}
+})
+</script>

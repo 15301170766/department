@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>单位体制内管理系统</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <style type="text/css">
+    	.form-group{
+    		width: 40%;
+    		display: inline-block;
+    	}
+    	@media screen and (max-width: 1000px) {
+		   .form-group{
+		    		width: 100%;
+		    		display: inline-block;
+		    	}
+		}
+    </style>
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            
+           
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body">
+                    
+                    <div class="row">
+                        <div class="col-xs-12 bs-example-modal">
+                            <div class="card">
+                                <div class="card-body no-padding">
+                                    <div role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs tab_control " class="addul_company" role="tablist">
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">单位信息增加</a></li>
+                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">部门架构增加详情</a></li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="home">
+												 <div class="modal active">
+			                                        <form id="addInfo_company">
+			                                        	<div class="form-group topCompany">
+													      <label  >上级单位名称</label>
+													      <input  type="text"  class="form-control companyHight searchKey" placeholder=" 输入相关上级单位全称" onkeyup="searchSuggestTopCompany(this);">
+													      <ul class=" searchUL clearfix">
+													      
+													      </ul>
+													    </div>
+													    <div class="form-group">
+													      <label  >单位编码</label>
+													      <input type="text" class="form-control companyID needs" placeholder=" 输入相关单位地址">
+													    </div>
+													    <div class="form-group">
+													      <label for="companyName">单位名称</label>
+													      <input type="text" class="form-control companyName needs"  placeholder="输入相关单位名称">
+													    </div>
+													     <div class="form-group">
+													      <label for="company_name">曾用名</label>
+													      <input type="text" class="form-control companyUsedName"   placeholder="输入相关单位曾用名">
+													    </div>
+													    <div class="form-group">
+													      <label  >单位地址</label>
+													      <input type="text" class="form-control companyAddress needs" placeholder=" 输入相关单位地址">
+													    </div>
+													    <div class="form-group">
+													      <label  >财务信息</label>
+													      <input type="text" class="form-control information"  placeholder=" 输入相关财务信息">
+													    </div>
+													    <div class="form-group">
+													      <label  >单位税号</label>
+													      <input type="text" class="form-control paragraph"  placeholder=" 输入相关单位税号">
+													    </div>
+													    <div class="form-group">
+													      <label  >单位电话</label>
+													      <input type="text" class="form-control companyTEL" placeholder=" 输入相关单位电话">
+													    </div>
+													    <div class="form-group">
+													      <label  >核心客户</label>
+													      <input type="text" class="form-control companyCoreCustomer"  placeholder=" 输入相关核心客户">
+													    </div>
+													    <div class="form-group">
+													      <label  >公司简介</label>
+													      <input type="text" class="form-control companyProfile"  placeholder=" 输入相关公司简介">
+													    </div>
+													    <div class="form-group">
+													      <label >开户银行</label>
+													      <input type="text" class="form-control depositBank"  placeholder=" 输入相关开户银行">
+													    </div>
+													    <div class="form-group">
+													      <label >银行账户</label>
+													      <input type="text" class="form-control bankAccount"  placeholder=" 输入相关银行账户">
+													    </div>
+													    <br />
+													    <button type="button" class="btn btn-primary btn_save">保存</button>
+												  	</form>
+												  
+			                                    </div>
+			                                </div>
+			                                <div class="tab-pane" id="profile">
+			                                    <div class="modal active">
+			                                        <form id="addDepartment_company">
+			                                        	<div class="form-group">
+													    	<label  >单位编码</label>
+													    	<input type="text" class="form-control companyID needs" placeholder=" 输入相关单位编码">
+													    	<button type="button" class="btn btn-info btn_replace">复制</button>
+													    </div>
+													    <button type="button" class="btn btn-primary btn_AddDepartment">新增部门</button>
+													    <button type="button" class="btn btn-primary btn_save">保存</button>
+												  </form>									  
+                                    			</div>
+                                           </div>                                           
+                                        </div>
+                                    </div>
+                               </div>                                
+                           </div>                  
+                        </div>
+                    </div>
+                         
+                </div>
+            </div>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper">
+                <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 
+            </div>
+        </footer>
+    <div>
+
+      <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/js/bootstrap.min.js"></script>
+      <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../../js_liu/data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/index.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+// 点击复制按钮时，对左侧单位信息进行判断，
+$("#addDepartment_company .btn_replace").on("click",function(){
+		let companyID=$("#addInfo_company .companyID").val();
+		$("#addDepartment_company .companyID").val(companyID);
+		if(companyID==""){
+			//alert("复制失败，请手动添加");
+		layer.msg('复制失败，请手动添加');
+			
+		}else{
+			
+		layer.msg('复制成功');
+		}
+	
+});
+
+
+
+// 表单信息提交--详情页
+$("#addInfo_company .btn_save").on("click",function(){
+	let companyID = $("#addInfo_company .companyID").val();
+	let companyHight = $("#addInfo_company .companyHight").val();
+	let companyName = $("#addInfo_company .companyName").val();
+	let companyAddress = $("#addInfo_company .companyAddress").val();
+	let companyCoreCustomer = $("#addInfo_company .companyCoreCustomer").val();
+	let companyUsedName = $("#addInfo_company .companyUsedName").val();
+	let information = $("#addInfo_company .information").val();
+	let paragraph = $("#addInfo_company .paragraph").val();
+	let companyTEL = $("#addInfo_company .companyTEL").val();
+	let depositBank = $("#addInfo_company .depositBank").val();
+	let bankAccount = $("#addInfo_company .bankAccount").val();
+	let companyProfile = $("#addInfo_company .companyProfile").val();
+	
+	
+	
+	
+	
+	
+	
+	let data={
+		companyID:$("#addInfo_company .companyID").val(),
+		companyHight:$("#addInfo_company .companyHight").val(),
+		companyName:$("#addInfo_company .companyName").val(),
+		companyAddress:$("#addInfo_company .companyAddress").val(),
+		companyCoreCustomer:$("#addInfo_company .companyCoreCustomer").val(),
+		companyUsedName:$("#addInfo_company .companyUsedName").val(),
+		information:$("#addInfo_company .information").val(),
+		paragraph:$("#addInfo_company .paragraph").val(),
+		companyTEL:$("#addInfo_company .companyTEL").val(),
+		depositBank:$("#addInfo_company .depositBank").val(),
+		bankAccount:$("#addInfo_company .bankAccount").val(),
+		companyProfile:$("#addInfo_company .companyProfile").val()
+	};
+	if(companyName!=""&&companyID!=""){
+		$.ajax({
+			type:"post",
+			url: lujin+'AddCompanyInfo',
+            contentType:"application/x-www-form-urlencoded",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				if(res.result==0){
+					layer.msg('信息保存成功', {icon: 6});					
+				}else if(res.result==1){
+					layer.msg('信息添加重复', {icon: 5});					
+				}
+			}
+		});
+		
+	}else{
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+
+
+
+// 表单信息提交--部门详情页
+$("#addDepartment_company .btn_save").on("click",function(){
+	let companyID = $("#addDepartment_company .companyID").val();
+	
+	let data={
+		departmentName:$("#addDepartment_company .departmentName").val(),
+		depatrmentDuty:$("#addDepartment_company .depatrmentDuty").val(),
+		departmentMember:$("#addDepartment_company .departmentMember").val(),
+		departmentCoreCustomer:$("#addDepartment_company .departmentCoreCustomer").val(),
+		companyID:$("#addDepartment_company .companyID").val(),
+		companyName:$("#addDepartment_company .companyName").val()
+	}
+	if(companyID!=""){
+		$.ajax({
+			type:"post",
+			url: lujin+'AddDepartmentInfo',
+            contentType:"application/x-www-form-urlencoded",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(data){
+				if(data.result==0){
+					layer.msg('信息添加成功', {icon: 6});					
+				}else if(data.result== 1){
+					layer.msg('部门信息重复，添加失败', {icon: 5});					
+				}else if(data.result==3){
+					layer.msg('部门信息重复，添加失败', {icon: 5});					
+				}
+			}
+		});
+	}else{
+		layer.msg('请您填写相关重要信息', {icon: 5});		
+	}
+});
+
+
+
+</script>

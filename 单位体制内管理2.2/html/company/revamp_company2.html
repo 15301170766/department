@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>单位体制内管理系统</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <style type="text/css">
+    	.form-group{
+    		width: 40%;
+    		display: inline-block;
+    	}
+    	@media screen and (max-width: 1000px) {
+			.form-group{
+	    		width: 100%;
+	    		display: inline-block;
+	    	}
+		}
+    </style>
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            
+           
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body">
+                   
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="card">
+                                
+                                 <div class="card-body no-padding">
+                                    <div role="tabpanel">
+                                       
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel " class="tab-pane active" id="settings">
+												<form id="revampDepartment_company"></form>
+		                                        <button type="button" class="btn btn-primary btn-primary btn_save">
+		                                            保存
+		                                        </button>
+		                                        <!--<button type="button"  class="btn btn-primary btn-success btn_revamp" >
+		                                            新增
+		                                        </button>-->
+		                                        <!--<button type="button"  class="btn btn-primary btn-warning btn_restore" data-toggle="modal" data-target="#modalWarning2">
+		                                            还原
+		                                        </button>-->
+		                                        <!-- Modal -->
+		                                        <!--<div class="modal fade modal-warning" id="modalWarning2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		                                            <div class="modal-dialog">
+		                                                <div class="modal-content">
+		                                                    <div class="modal-header">
+		                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                                                        <h4 class="modal-title" id="myModalLabel">还原</h4>
+		                                                    </div>
+		                                                    <div class="modal-body">
+																放弃修改，确认还原？
+		                                                    </div>
+		                                                    <div class="modal-footer">
+		                                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		                                                        <button type="button"  class="btn btn-warning btn_restore" class="btn btn-default" data-dismiss="modal">确认</button>
+		                                                    </div>
+		                                                </div>
+		                                            </div>
+		                                        </div>-->
+		                                        <button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#modalDanger4">
+		                                            删除
+		                                        </button>
+		                                        <!-- Modal -->
+		                                        <div class="modal fade modal-danger" id="modalDanger4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		                                            <div class="modal-dialog">
+		                                                <div class="modal-content">
+		                                                    <div class="modal-header">
+		                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                                                        <h4 class="modal-title" id="myModalLabel">确认删除？</h4>
+		                                                    </div>
+		                                                    <div class="modal-body">
+																直接删除
+		                                                    </div>
+		                                                    <div class="modal-footer">
+		                                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		                                                        <button type="button" class="btn btn-danger" class="btn btn-default" data-dismiss="modal">确定</button>
+		                                                    </div>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper">
+                <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 
+            </div>
+        </footer>
+    <div>
+
+      <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/js/bootstrap.min.js"></script>
+      <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../../js_liu/data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/index.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+	
+$(function(){
+	// 表单信息提交--部门详情页
+$("#revampDepartment_company").siblings(".btn_save").on("click",function(){
+	let departmentName = $("#revampDepartment_company .departmentName").text();
+	let companyID = $("#revampDepartment_company .companyID").text();
+	
+	let data={
+		departmentName:$("#revampDepartment_company .departmentName").text(),
+		companyID:$("#revampDepartment_company .companyID").text(),
+		depatrmentDuty:$("#revampDepartment_company .depatrmentDuty").val(),
+		departmentMember:$("#revampDepartment_company .departmentMember").val(),
+		departmentCoreCustomer:$("#revampDepartment_company .departmentCoreCustomer").val(),
+		companyName:$("#revampDepartment_company .companyName").val()
+	}
+	if(departmentName!=""&&companyID!=""){
+		$.ajax({
+			type:"post",
+			url:lujin+'UpdateDepartmentInfo',
+			contentType:"application/x-www-form-urlencoded",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				if(data.result==0){
+					layer.msg('信息更新成功', {icon: 6});					
+				}else if(data.result==100){
+					layer.msg('信息更新失败', {icon: 5});					
+				}
+				
+			}
+		});
+	}else{
+		layer.msg('请您填写相关重要信息', {icon: 5});
+		
+	}
+});
+})
+</script>

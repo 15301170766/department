@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>单位体制内管理系统</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <style type="text/css">
+    	.form-group{
+    		width: 40%;
+    		display: inline-block;
+    	}
+    	@media screen and (max-width: 1000px) {
+		   .form-group{
+		    		width: 100%;
+		    		display: inline-block;
+		    	}
+		}
+    </style>
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            
+           
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body">
+                    <div class="row">
+                        <div class="col-xs-12 bs-example-modal">
+                            <div class="card">
+                                <div class="card-body no-padding">
+                                    <div role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs tab_control " role="tablist">
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">学校信息增加</a></li>
+                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">专业详情添加</a></li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="home">
+												 <div class="modal active">
+			                                        <form id="addInfo_school">
+			                                        	<br />
+													    	<button type="button" class="btn btn-primary btn_save">保存</button>
+					
+												  	</form>
+												  
+			                                    </div>
+			                                </div>
+			                                <div class="tab-pane" id="profile">
+			                                    <div class="modal active">
+			                                        <form id="addMajorDetails_school">
+			                                        	<div class="form-group">
+													    	<label  >学校名称</label>
+													    	<input  type="text" class="form-control schoolName needs" placeholder=" 输入相关学校编号">
+													    	<button type="button" class="btn btn-info btn_replace">复制</button>
+													    	
+													    </div>
+													    <button type="button" class="btn btn-primary btn_AddMajor">新增专业</button>
+													    <button type="button" class="btn btn-primary btn_save">保存</button>
+												  </form>									  
+                                    			</div>
+                                           </div>                                           
+                                        </div>
+                                    </div>
+                               </div>                                
+                           </div>                  
+                        </div>
+                    </div>
+                          
+                </div>
+            </div>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper">
+                <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 
+            </div>
+        </footer>
+    <div>
+      <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/js/bootstrap.min.js"></script>
+      <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="../../js_liu/data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/template.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js_liu/index.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+	
+	
+// 点击复制按钮时，对左侧单位信息进行判断，
+$("#addMajorDetails_school .btn_replace").on("click",function(){
+		let schoolName=$("#addInfo_school .schoolName").val();
+		$("#addMajorDetails_school .schoolName").val(schoolName);
+		if(schoolName==""){
+			//alert("复制失败，请手动添加");
+		layer.msg('复制失败，请手动添加');
+			
+		}else{
+			
+		layer.msg('复制成功');
+		}
+	
+});
+
+		// 学校基本信息提交--新增页
+	$("#addInfo_school .btn_save").on("click",function(){
+	let schoolName = $("#addInfo_school .schoolName").val();
+	let schoolAddress = $("#addInfo_school .schoolAddress").val();
+	let schoolLevel = $("#addInfo_school .schoolLevel").find('option:selected').text();
+	let schoolEstablish = $("#addInfo_school .schoolEstablish option:selected").text();
+	let principal = $("#addInfo_school .principal").val();
+	let majorID = $("#addInfo_school .majorID").val();
+	let schoolTEL = $("#addInfo_school .schoolTEL").val();
+	let schoolType = $("#addInfo_school .schoolType").find('option:selected').text();
+	let schoolAbout = $("#addInfo_school .schoolAbout").val();
+	
+	let data={
+		schoolName:$("#addInfo_school .schoolName").val(),
+		schoolAddress:$("#addInfo_school .schoolAddress").val(),
+		schoolLevel:$("#addInfo_school .schoolLevel").find('option:selected').text(),
+		schoolEstablish:$("#addInfo_school .schoolEstablish option:selected").text(),
+		principal:$("#addInfo_school .principal").val(),
+		majorID:$("#addInfo_school .majorID").val(),
+		schoolTEL:$("#addInfo_school .schoolTEL").val(),
+		schoolType:$("#addInfo_school .schoolType").find('option:selected').text(),
+		schoolAbout:$("#addInfo_school .schoolAbout").val()
+	};
+	if(schoolName!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+
+	// 专业详情信息提交--新增页
+	$("#addMajorDetails_school .btn_save").on("click",function(){
+	let schoolName = $("#addMajorDetails_school .schoolName").val();
+	let majorName = $("#addMajorDetails_school .majorName").val();
+	let majorTutor = $("#addMajorDetails_school .majorTutor").val();
+	let majorMember = $("#addMajorDetails_school .majorMember").find('option:selected').text();
+	let majorDate = $("#addMajorDetails_school .majorDate option:selected").text();
+	let majorDuty = $("#addMajorDetails_school .majorDuty").val();
+	let excellentLeader = $("#addMajorDetails_school .excellentLeader").val();
+	
+	let data={
+		schoolName:$("#addMajorDetails_school .schoolName").val(),
+		majorName:$("#addMajorDetails_school .majorName").val(),
+		majorTutor:$("#addMajorDetails_school .majorTutor").val(),
+		majorMember:$("#addMajorDetails_school .majorMember").find('option:selected').text(),
+		majorDate:$("#addMajorDetails_school .majorDate option:selected").text(),
+		majorDuty:$("#addMajorDetails_school .majorDuty").val(),
+		excellentLeader:$("#addMajorDetails_school .excellentLeader").val()
+	};
+	if(schoolName!=""){
+		$.ajax({
+			type:"post",
+			url:"xxx",
+			async:true,
+			data:data,
+			dataType:"json",
+			success:function(res){
+				console.log("提交成功");
+				console.log(data);
+		layer.msg('信息保存成功', {icon: 6});
+				
+			}
+		});
+				console.log(data)
+		layer.msg('信息保存成功', {icon: 6});
+		
+	}else{
+		//alert("请您填写相关重要信息");
+		layer.msg('请您填写相关重要信息', {icon: 5});
+	}
+});
+</script>

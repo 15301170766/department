@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/public.css" />
+		<link rel="stylesheet" href="../../css/people_details.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			table {
+				border: 1px solid #e0e0e0;
+				font-size: 14px;
+				background: #ffffff;
+				box-sizing: border-box;
+				text-align: left;
+				border-collapse: collapse;
+			}
+			
+			table tr {
+				height: 50px;
+			}
+			
+			table tr td {
+				padding: 8px;
+				color: #454545;
+			}
+			
+			.table-left {
+				width: 15%;
+				background: #f9f9f9;
+				color: #737373;
+				text-align: center;
+			}
+			
+			.table3 td:nth-child(1) {
+				text-align: center;
+			}
+			
+			.table3 td:nth-child(3) {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table border='1' cellpadding="0" cellspacing="0">
+			<tr>
+				<th colspan="4" style='text-align: center;color:#f68b45;'>个人基本信息</th>
+			</tr>
+			<tr>
+				<td class='table-left'>姓名</td>
+				<td width='35%'>徐贱云</td>
+				<td class='table-left' width='15%'>年龄</td>
+				<td width="35%">26</td>
+			</tr>
+			<tr>
+				<td class='table-left'>手机号码</td>
+				<td>1513513585</td>
+				<td class='table-left'>个人邮箱</td>
+				<td>1513281358@163.com</td>
+			</tr>
+			<tr>
+				<td class='table-left'>民族</td>
+				<td>汉族</td>
+				<td class='table-left'>籍贯</td>
+				<td>籍贯</td>
+			</tr>
+			<tr>
+				<td class='table-left'>微信</td>
+				<td>922232</td>
+				<td class='table-left'>qq</td>
+				<td>45678983</td>
+			</tr>
+			<tr>
+				<td class='table-left'>身份证号</td>
+				<td>234234234234234234</td>
+				<td class='table-left'>健康状况</td>
+				<td>良好</td>
+			</tr>
+			<tr>
+				<td class='table-left'>个人习惯</td>
+				<td>抽烟</td>
+				<td class='table-left'>重要程度</td>
+				<td>一般</td>
+			</tr>
+			<tr>
+				<td class='table-left'>毕业学校</td>
+				<td>黄河科技学院</td>
+				<td class='table-left'>现任公司</td>
+				<td>和舆图</td>
+			</tr>
+			<tr>
+				<td class='table-left'>担任职务</td>
+				<td>前端工程师</td>
+				<td class='table-left'>办公电话</td>
+				<td>82349242</td>
+			</tr>
+			<tr>
+				<td class='table-left'>车牌号码</td>
+				<td>无</td>
+				<td class='table-left'>当前住处</td>
+				<td>昌平</td>
+			</tr>
+			<tr>
+				<td class='table-left'>备注</td>
+				<td colspan="3">
+				</td>
+			</tr>
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th style='text-align: center;color:#f68b45;' colspan="4">个人履历</th>
+			</tr>
+			<tr>
+				<td class='table-left'>姓名</td>
+				<td colspan="3">徐贱云</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center;color:#f68b45;">工作经历</td>
+			</tr>
+			<tr>
+				<td class='table-left'>工作时间</td>
+				<td>2015-2018</td>
+				<td class='table-left'>工作地点</td>
+				<td>北京中关村</td>
+			</tr>
+			<tr>
+				<td class='table-left'>公司名称</td>
+				<td>和舆图</td>
+				<td class='table-left'>担任职务</td>
+				<td>前端工程师</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center;color:#f68b45;">学习经历</td>
+			</tr>
+			<tr>
+				<td class='table-left'>学习时间</td>
+				<td>2010-2015</td>
+				<td class='table-left'>学校名称</td>
+				<td>黄河科技大学</td>
+			</tr>
+			<tr>
+				<td class='table-left'>学习专业</td>
+				<td>电控</td>
+				<td class='table-left'>专业导师</td>
+				<td>xxx</td>
+			</tr>
+			<tr>
+				<td class='table-left'>备注</td>
+				<td colspan="3">在校表现优异，团支书干部
+			</tr>
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0" class='table3'>
+			<tr>
+				<th colspan="4" style='text-align: center;color:#f68b45;'>兴趣爱好修改</th>
+			</tr>
+			<tr>
+				<td class='table-left'>姓名</td>
+				<td colspan="3">刘圆圆</td>
+			</tr>
+			<tr>
+				<td>香烟</td>
+				<td>备注：红塔山</td>
+				<td>美女</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>财物</td>
+				<td>备注：</td>
+				<td>唱歌</td>
+				<td>备注：唱歌</td>
+			</tr>
+			<tr>
+				<td>洗澡</td>
+				<td>备注：</td>
+				<td>旅游</td>
+				<td>备注：张家界</td>
+			</tr>
+			<tr>
+				<td>摄影</td>
+				<td>备注：</td>
+				<td>运动</td>
+				<td>备注：爬山</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center;color:#f68b45;">运动周期：一周一次</td>
+			</tr>
+			<tr>
+				<td>爬山</td>
+				<td>备注：</td>
+				<td>汽车</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>喝茶</td>
+				<td>备注：</td>
+				<td>身体状况</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>遗传病</td>
+				<td>备注：</td>
+				<td>不适地方</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>饮食</td>
+				<td>备注：</td>
+				<td>忌口</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center;color:#f68b45;">爱好</td>
+			</tr>
+			<tr>
+				<td>喝茶</td>
+				<td>备注：普洱茶</td>
+				<td>钓鱼</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>高尔夫</td>
+				<td>备注：</td>
+				<td>看书</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>手表</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center;color:#f68b45;">小资情调</td>
+
+			</tr>
+			<tr>
+				<td>皮鞋</td>
+				<td>备注：</td>
+				<td>腰带</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td>电脑</td>
+				<td>备注：</td>
+				<td>类型</td>
+				<td>备注：</td>
+			</tr>
+			<tr>
+				<td class='table-left'>备注</td>
+				<td colspan="3">
+			</tr>
+		</table>
+		<div class="people_details">
+			<div class="top">
+				<button style="background: green;">家人</button>
+				<button>公司</button>
+				<button>同事</button>
+				<button>战友</button>
+				<button>校友</button>
+				<button>朋友</button>
+			</div>
+			<!--<button style="background: green;">朋友</button>-->
+			<div class="details_circle" id="details_circle_p">
+
+			</div>
+			<div class="details_circle" id="details_circle_p1">
+
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="../../js_liu/people_detail.js" type="text/javascript" charset="utf-8"></script>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>单位体制内管理系统</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/css/bootstrap-switch.min.css">
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/themes/flat-blue.css">
+    <style type="text/css">
+    	.circle{
+    		border-radius: 10px;
+    	}
+    	.jieguo{
+    		margin-top: 150px;
+    		/*height: 600px;*/
+   		 }
+    </style>
+    <style type="text/css">
+    	.searchUL{
+    		width: 80%;
+    		background: white;
+    		position: absolute;
+    		/*top: 10%;*/
+    		background: rgba(120,120,120,0.5);
+    		list-style: none;
+    	}
+    	
+    
+    </style>
+</head>
+
+<body class="flat-blue">
+    <div class="app-container">
+        <div class="row content-container">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-expand-toggle">
+                            <i class="fa fa-bars icon"></i>
+                        </button>
+                        <ol class="breadcrumb navbar-breadcrumb">
+                            <li>单位管理</li>
+                            <li class="active">单位信息搜索</li>
+                        </ol>
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-th icon"></i>
+                        </button>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-times icon"></i>
+                        </button>
+                        <li class="dropdown profile">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">刘圆圆 <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated fadeInDown">
+                                <li>
+                                    <div class="profile-info">
+                                        <h4 class="username">刘圆圆</h4>
+                                        <p>15301170766@qq.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i> 个人中心</button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> 退出</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="side-menu sidebar-inverse">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="side-menu-container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">
+                                <div class="icon fa fa-paper-plane"></div>
+                                <div class="title">体制内管理 V.2</div>
+                            </a>
+                            <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                                <i class="fa fa-times icon"></i>
+                            </button>
+                        </div>
+                        <ul class="nav navbar-nav popup_list1">
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="side-body">
+                    <div class="page-title">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="card" style="min-height: 800px;">
+                                <div class="card-body center-block search_company" >
+									    <div class="col-sm-3"></div>
+									    <div class="col-sm-5">
+									      <input type="text" class="form-control input-lg circle searchKey"  onkeyup="searchSuggest(this);" placeholder="输入相关单位或相关单位架构">
+									    	<ul class=" searchUL clearfix"></ul>
+									    </div>
+                                        <button type="button" class="btn btn-success col-sm-1 circle searchpop ">搜索</button>
+									    <div class="col-sm-3"></div>
+                                </div>
+                                <div class="card-body jieguo">
+                                    <h4 class="text-center">未找到相关信息</h4>
+                                </div>
+                                <div class="col-md-12">
+		                        	<div class="col-md-3">
+		                        		<dl class="text-right">
+		                        			<dt class="h3">上级公司</dt>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        		</dl>
+		                        	</div>
+		                        	<div class="col-md-2 col-md-offset-2">
+		                        		<dl class="text-center">
+		                        			<dt class="h3">匹配公司</dt>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        		</dl>
+		                        	</div>
+		                        	<div class="col-md-3 col-md-offset-2">
+		                        		<dl class="text-left">
+		                        			<dt class="h3">下属公司</dt>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        			<dd class="h4"><a href="#">和舆图</a></dd>
+		                        		</dl>
+		                        	</div>
+		                        	
+		                        </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal fade" id="modalCardExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Card Example</h4>
+                                </div>
+                                <div class="modal-body no-padding">
+                                    <div id="code-preview-card" class="code-preview">&lt;div class=&quot;card&quot;&gt;
+									    &lt;div class=&quot;card-header&quot;&gt;
+									        &lt;div class=&quot;card-title&quot;&gt;
+									            &lt;div class=&quot;title&quot;&gt;Card Block Title&lt;/div&gt;
+									        &lt;/div&gt;
+									        &lt;div class=&quot;pull-right card-action&quot;&gt;
+									            &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+									                &lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;&lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+									            &lt;/div&gt;
+									        &lt;/div&gt;
+									        &lt;div class=&quot;clear-both&quot;&gt;&lt;/div&gt;
+									    &lt;/div&gt;
+									    &lt;div class=&quot;card-body&quot;&gt;
+									        &lt;div class=&quot;text-indent&quot;&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.&lt;/div&gt;
+									        &lt;div class=&quot;sub-title&quot;&gt;Card Sub Title&lt;/div&gt;
+									        &lt;div class=&quot;text-indent&quot;&gt;
+									            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option
+									        &lt;/div&gt;
+									    &lt;/div&gt;
+										&lt;/div&gt;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="modal fade" id="modalCardProfileExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Card Profile Example</h4>
+                                </div>
+                                <div class="modal-body no-padding">
+                                    <div id="code-preview-card-profile" class="code-preview">&lt;div class=&quot;card profile&quot;&gt;
+									    &lt;div class=&quot;card-profile-img&quot;&gt;
+									        &lt;img src=&quot;../../../../img/profile/picjumbo.com_HNCK4153_resize.jpg&quot;&gt;
+									    &lt;/div&gt;
+									    &lt;div class=&quot;card-body&quot;&gt;
+									        &lt;div class=&quot;name&quot;&gt;&lt;/div&gt;
+									        &lt;div class=&quot;description&quot;&gt;
+									            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+									        &lt;/div&gt;
+									    &lt;/div&gt;
+									    &lt;div class=&quot;card-footer&quot;&gt;
+									        &lt;i class=&quot;fa fa-users&quot;&gt;&lt;/i&gt; 10 Friends
+									    &lt;/div&gt;
+										&lt;/div&gt;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="modal fade" id="modalCardJumbotronExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Card Jumbotron Example</h4>
+                                </div>
+                                <div class="modal-body no-padding">
+                                    <div id="code-preview-card-jumbotron" class="code-preview">&lt;div class=&quot;card primary&quot;&gt;
+									    &lt;div class=&quot;card-jumbotron no-padding&quot;&gt;
+									        &lt;img src=&quot;../../img/thumbnails/picjumbo.com_IMG_3241.jpg&quot; height=&quot;533&quot; width=&quot;800&quot; class=&quot;img-responsive&quot;&gt;
+									    &lt;/div&gt;
+									    &lt;div class=&quot;card-body&quot;&gt;
+									        &lt;h4&gt;Lorem Ipsum&lt;/h4&gt;
+									        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor.
+									    &lt;/div&gt;
+										&lt;/div&gt;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                    <div class="modal fade" id="modalCardBannerExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Card Banner Example</h4>
+                                </div>
+                                <div class="modal-body no-padding">
+                                    <div id="code-preview-card-banner" class="code-preview">&lt;div class=&quot;card red summary-inline&quot;&gt;
+									    &lt;div class=&quot;card-body&quot;&gt;
+									        &lt;i class=&quot;icon fa fa-inbox fa-4x&quot;&gt;&lt;/i&gt;
+									        &lt;div class=&quot;content&quot;&gt;
+									            &lt;div class=&quot;title&quot;&gt;50&lt;/div&gt;
+									            &lt;div class=&quot;sub-title&quot;&gt;New Mails&lt;/div&gt;
+									        &lt;/div&gt;
+									        &lt;div class=&quot;clear-both&quot;&gt;&lt;/div&gt;
+									    &lt;/div&gt;
+										&lt;/div&gt;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="app-footer">
+            <div class="wrapper">
+                <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> ©
+            </div>
+        </footer>
+    <div>
+    <!-- Javascript Libs -->
+    <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/bootstrap-switch.min.js"></script>
+
+    <script type="text/javascript" src="../../lib/js/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="../../lib/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/ace/ace.js"></script>
+    <script type="text/javascript" src="../../lib/js/ace/mode-html.js"></script>
+    <script type="text/javascript" src="../../lib/js/ace/theme-github.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="../../js/app.js"></script>
+    <script type="text/javascript" src="../../js/search.js"></script>
+    <script src="../../js_liu/data.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
+<script type="text/javascript">
+	// 当在搜索框输入内容时，根据关键字匹配，显示弹出层 
+function searchSuggest(obj){ 
+	 var searchKey=$(obj).val(); 
+	 var reg = new RegExp(searchKey,"i"); //忽略大小写匹配搜索框中输入的内容 
+	 $.ajax({ 
+		 type:"get", 
+		 url:"../../js_liu/json1.json", 
+		 dataType:"json", 
+		 success:function(data){ 
+			  var arr=[]; 
+			  for(var i=0;i<10;i++){ 
+				  if(searchKey!="" && (data[i].编码.search(reg)!=-1 || data[i].单位名称.search(reg)!=-1)) { 
+				   		arr.push("<li  onclick='changeSearchKey(this);'><h4>"+data[i].单位名称+"</h4></li>"); 
+				  } 
+			  };  
+			  
+			  $(".search_company .searchUL").html(arr).show(); 
+		 } 
+	 }); 
+}; 
+
+//单击匹配列表中的关键字选项时，将该关键字显示在搜索框中 
+function changeSearchKey(obj){ 
+	 var value=$(obj).text(); 
+	 $(".search_company .searchKey").val(value); 
+	 $('.search_company .searchUL').hide(); 
+}
+
+
+</script>
